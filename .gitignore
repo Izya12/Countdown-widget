@@ -1,0 +1,11 @@
+.firecrawl/
+.gradle/
+.kotlin/
+.idea/
+**/build/
+local.properties
+*.jks
+*.keystore
+captures/
+Screenshot_*.jpg
+.tools/
