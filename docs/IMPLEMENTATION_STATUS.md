@@ -1,14 +1,13 @@
-# Implementation status — 2026-09-17
+# Implementation status — 2026-09-19
 
 ## Verification
 
-- Git initialized locally on main. No commit, remote or push. Earlier approval-service HTTP403 blockage is resolved.
-- Windows, Java21, Gradle8.13, Android SDK36; bytecode17, minSdk26.
+- Windows, JetBrains Java21, Gradle9.5.0, AGP9.3.3, Android SDK36; bytecode17, minSdk26.
 - Domain suite: 18 tests passed, including 7 reminder tests for long offsets, DST, all-day, past dates and disabled rules.
 - Backup codec suite: 9 tests passed, including typed reminder round-trip and orphan-rule rejection.
 - Debug APK builds. Release APK builds with R8/resource shrinking; it is unsigned.
 - Android lint: zero errors; warnings remain.
-- All 14 instrumentation tests passed on Pixel9Pro AVD, Android16/API36.1, including actual notification delivery, idempotence, cancellation, catch-up expiry, rule creation through UI, import and migration2→3.
+- All 18 instrumentation tests passed on Pixel9Pro AVD, Android16, including actual notification delivery, idempotence, cancellation, catch-up expiry, rule creation through UI, import, migration2→3 and active widget data updates. See [widget regression report](QA_2026-09-19_WIDGET_FIX.md).
 - Room schemas1/2/3 exported.
 
 ## Implemented

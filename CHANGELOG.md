@@ -2,6 +2,9 @@
 
 ## Unreleased — 0.1.0
 
+- Fixed stale content in active standard and circular widget sessions by observing Room event and configuration changes; added regression tests for initial assignment, edits, units and deletion.
+- Removed unused RU/EN string resources and refreshed build/verification documentation.
+
 - Added a separate round1×1 home-screen widget with a transparent background, day/week count, event caption and optional remaining-progress ring.
 - Added independent day/week selection for each round widget, with configuration recreation and real widget-click tests.
 

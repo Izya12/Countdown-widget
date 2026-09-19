@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Обратный отсчёт</string>
-    <string name="events">События</string>
     <string name="new_event">Новое событие</string>
     <string name="edit_event">Изменить событие</string>
     <string name="save">Сохранить</string>
@@ -28,7 +27,6 @@
     <string name="empty_body">Сохраните важную дату. Здесь появится ваш обратный отсчёт.</string>
     <string name="no_results">События не найдены</string>
     <string name="add">Добавить событие</string>
-    <string name="more">Ещё</string>
     <string name="edit">Изменить</string>
     <string name="delete">Удалить</string>
     <string name="delete_title">Удалить событие?</string>
@@ -94,7 +92,6 @@
     <string name="fixed_hint">Момент остаётся тем же при смене зоны отображения. Доступно без повторения.</string>
     <string name="invalid">Проверьте название, дату, время и часовой пояс.</string>
     <string name="error">Не удалось выполнить действие. Ваши изменения сохранены в форме. Попробуйте ещё раз.</string>
-    <string name="load_error">Не удалось загрузить события. Перезапустите приложение и попробуйте снова.</string>
     <string name="today">Сегодня</string>
     <string name="tomorrow">Завтра</string>
     <string name="started">Событие началось</string>
@@ -105,7 +102,6 @@
     <string name="remaining">Осталось</string>
     <string name="elapsed">Прошло</string>
     <string name="week_fraction">%1$s недели</string>
-    <string name="calendar_period">%1$s · %2$s · %3$s</string>
     <string name="detailed_value">%1$d дн. %2$s</string>
     <string name="progress">Прошло %1$d%%</string>
     <string name="settings">Настройки</string>

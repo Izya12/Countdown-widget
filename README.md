@@ -9,8 +9,8 @@
 Доступна разрабатываемая версия: события, категории, отсчёт, Glance-виджеты,
 напоминания и локальные резервные копии JSON. Debug и unsigned release
 собираются; тесты проходят, lint не сообщает ошибок. Напоминания настраиваются в
-деталях сохранённого события; время доставки приблизительное. Git
-инициализирован. Расширенные настройки виджетов и часть проверок на устройствах
+деталях сохранённого события; время доставки приблизительное.
+Расширенные настройки виджетов и часть проверок на устройствах
 ещё предстоят. Проверки и оставшаяся работа —
 [Implementation status](docs/IMPLEMENTATION_STATUS.md).
 
@@ -33,11 +33,14 @@ WorkManager; minSdk 26, targetSdk 36, compileSdk 36. Конкретные вер
 
 ## Сборка
 
-Требуются JDK 17+ и Android SDK 36. Создайте локальный `local.properties` с
+Gradle wrapper: 9.5.0; AGP: 9.3.3. Для Gradle daemon закреплён JetBrains JDK 21
+в `gradle/gradle-daemon-jvm.properties`; подойдёт JBR из Android Studio.
+При отсутствии подходящего JDK Gradle попытается скачать его. Bytecode остаётся JVM 17.
+Требуется Android SDK 36. Создайте локальный `local.properties` с
 `sdk.dir`, затем выполните:
 
 ```powershell
-.\gradlew.bat :core:domain:test :app:lintDebug :app:assembleDebug
+.\gradlew.bat :core:domain:test :app:testDebugUnitTest :app:lintDebug :app:assembleDebug
 ```
 
 Debug APK: `app/build/outputs/apk/debug/app-debug.apk`. Это тестовая версия с

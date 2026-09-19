@@ -1,6 +1,6 @@
 # Contributing
 
-Use JDK 17 (or newer to run Gradle), Android SDK 36 and the checked-in Gradle wrapper. Kotlin and Java bytecode target JVM 17.
+Use JetBrains JDK 21 (for example Android Studio JBR), Android SDK 36 and the checked-in Gradle 9.5.0 wrapper. The daemon JVM criteria pin JetBrains 21 and may download it if it is not found. Kotlin and Java bytecode target JVM 17. To use an existing installation, pass `-Dorg.gradle.java.installations.paths=<JDK directory>`.
 
 Run `./gradlew :core:domain:test :app:testDebugUnitTest :app:lintDebug :app:assembleDebug :app:assembleRelease` before proposing a change. Run `:app:connectedDebugAndroidTest` with an emulator/device for database and UI changes.
 

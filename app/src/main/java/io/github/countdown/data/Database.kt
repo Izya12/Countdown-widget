@@ -87,6 +87,7 @@ interface CountdownDao {
     @Query("DELETE FROM categories WHERE id = :id AND seedKey IS NULL") suspend fun deleteCategory(id: String)
     @Query("DELETE FROM events WHERE id = :id") suspend fun delete(id: String)
     @Query("SELECT * FROM widget_configs WHERE appWidgetId = :id") suspend fun widget(id: Int): WidgetConfig?
+    @Query("SELECT * FROM widget_configs WHERE appWidgetId = :id") fun observeWidget(id: Int): Flow<WidgetConfig?>
     @Query("SELECT * FROM widget_configs") suspend fun widgets(): List<WidgetConfig>
     @Upsert suspend fun saveWidget(config: WidgetConfig)
     @Query("DELETE FROM widget_configs WHERE appWidgetId = :id") suspend fun deleteWidget(id: Int)

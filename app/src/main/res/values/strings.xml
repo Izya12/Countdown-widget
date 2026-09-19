@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Countdown</string>
-    <string name="events">Events</string>
     <string name="new_event">New event</string>
     <string name="edit_event">Edit event</string>
     <string name="save">Save</string>
@@ -28,7 +27,6 @@
     <string name="empty_body">Save a date that matters. Your countdown will be here.</string>
     <string name="no_results">No matching events</string>
     <string name="add">Add event</string>
-    <string name="more">More</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="delete_title">Delete this event?</string>
@@ -94,7 +92,6 @@
     <string name="fixed_hint">The instant stays the same when its display time zone changes. Available without recurrence.</string>
     <string name="invalid">Check the title, date, time and time zone.</string>
     <string name="error">Could not complete this action. Your changes are preserved. Please try again.</string>
-    <string name="load_error">Could not load your events. Restart the app to try again.</string>
     <string name="today">Today</string>
     <string name="tomorrow">Tomorrow</string>
     <string name="started">Event started</string>
@@ -105,7 +102,6 @@
     <string name="remaining">Time remaining</string>
     <string name="elapsed">Time elapsed</string>
     <string name="week_fraction">%1$s weeks</string>
-    <string name="calendar_period">%1$s · %2$s · %3$s</string>
     <string name="detailed_value">%1$d d %2$s</string>
     <string name="progress">%1$d%% elapsed</string>
     <string name="settings">Settings</string>

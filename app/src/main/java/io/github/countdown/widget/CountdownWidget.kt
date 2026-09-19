@@ -3,6 +3,8 @@ package io.github.countdown.widget
 import android.content.Context
 import android.content.Intent
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.glance.*
@@ -11,7 +13,6 @@ import androidx.glance.appwidget.*
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.layout.*
 import androidx.glance.text.*
-import androidx.glance.unit.ColorProvider
 import io.github.countdown.CountdownApp
 import io.github.countdown.MainActivity
 import io.github.countdown.R
@@ -19,6 +20,8 @@ import io.github.countdown.data.WidgetConfig
 import io.github.countdown.domain.*
 import io.github.countdown.ui.countdownLabel
 import io.github.countdown.ui.dateLabel
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
 import java.time.YearMonth
 import java.time.format.TextStyle as JavaTextStyle
 import java.time.temporal.WeekFields
@@ -30,12 +33,22 @@ open class CountdownWidget(private val circular: Boolean = false) : GlanceAppWid
     override suspend fun provideGlance(context: Context, id: GlanceId) {
         val app = context.applicationContext as CountdownApp
         val widgetId = GlanceAppWidgetManager(context).getAppWidgetId(id)
-        val config = app.database.dao().widget(widgetId)
-        val event = config?.eventId?.let { app.database.dao().event(it)?.domain() }?.let {
-            if (circular) circleEvent(it, config.style) else it
+        val dao = app.database.dao()
+        val data = combine(dao.observeWidget(widgetId), dao.observeEvents()) { config, events ->
+            val event = events.find { it.id == config?.eventId }?.domain()?.let {
+                if (circular) circleEvent(it, requireNotNull(config).style) else it
+            }
+            config to event
         }
-        val snapshot = event?.let { CountdownEngine.calculate(it, app.clock.instant()) }
-        provideContent { GlanceTheme { WidgetContent(context, widgetId, config, event, snapshot, circular) } }
+        val initial = data.first()
+        // update() does not restart provideGlance while its session is alive.
+        // Observe Room inside the composition, including initially unconfigured widgets.
+        provideContent {
+            val current by data.collectAsState(initial)
+            val (config, event) = current
+            val snapshot = event?.let { CountdownEngine.calculate(it, app.clock.instant()) }
+            GlanceTheme { WidgetContent(context, widgetId, config, event, snapshot, circular) }
+        }
     }
 
     override suspend fun onDelete(context: Context, glanceId: GlanceId) {
@@ -71,7 +84,6 @@ class CountdownWidgetReceiver : GlanceAppWidgetReceiver() {
 @Composable private fun WidgetContent(context: Context, widgetId: Int, config: WidgetConfig?, event: CountdownEvent?, snapshot: CountdownSnapshot?, circular: Boolean) {
     val size = LocalSize.current
     val small = size.width < 180.dp
-    val large = size.height >= 180.dp
     val action = if (event != null) Intent(context, MainActivity::class.java).putExtra("eventId", event.id)
         else Intent(context, WidgetConfigurationActivity::class.java).setAction(android.appwidget.AppWidgetManager.ACTION_APPWIDGET_CONFIGURE)
             .putExtra(android.appwidget.AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId)
