@@ -2,6 +2,10 @@
 
 ## Unreleased — 0.1.0
 
+- Prepared F-Droid metadata, RU/EN screenshots, privacy policy and runtime dependency notices.
+- Set the publication application ID to `io.github.izya12.countdown`; old test data can be transferred with JSON export/import.
+- Removed the vendor-specific JDK requirement; command-line builds use OpenJDK 21.
+
 - Renamed the Russian app label to «Отсчёт»; the English label remains «Countdown».
 
 - Fixed stale content in active standard and circular widget sessions by observing Room event and configuration changes; added regression tests for initial assignment, edits, units and deletion.

@@ -1,7 +1,8 @@
 """Create a runtime license inventory from Gradle's resolved artifacts and cached POMs.
 
 First run :app:writeRuntimeInventory using dependency-inventory.init.gradle.
-No network requests or credentials are used by this script.
+With --fetch-missing, fetch missing POMs from Google Maven or Maven Central.
+No credentials are used by this script.
 """
 import hashlib
 import json

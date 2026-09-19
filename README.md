@@ -33,9 +33,8 @@ WorkManager; minSdk 26, targetSdk 36, compileSdk 36. Конкретные вер
 
 ## Сборка
 
-Gradle wrapper: 9.5.0; AGP: 9.3.3. Для Gradle daemon закреплён JetBrains JDK 21
-в `gradle/gradle-daemon-jvm.properties`; подойдёт JBR из Android Studio.
-При отсутствии подходящего JDK Gradle попытается скачать его. Bytecode остаётся JVM 17.
+Gradle wrapper: 9.5.0; AGP: 9.3.3. Установите OpenJDK 21 и укажите его в
+`JAVA_HOME`. Android Studio для сборки не требуется. Bytecode остаётся JVM 17.
 Требуется Android SDK 36. Создайте локальный `local.properties` с
 `sdk.dir`, затем выполните:
 
@@ -47,6 +46,17 @@ Debug APK: `app/build/outputs/apk/debug/app-debug.apk`. Это тестовая 
 текущими экранами и резервным копированием. Release APK пока не подписан. Для
 проверки базы и UI на подключённом устройстве: `:app:connectedDebugAndroidTest`.
 
-Лицензия исходного кода — [MIT](LICENSE). Transitive notices, security contact и
-release signing ещё требуют завершения. Скриншоты стороннего приложения
+## Публикация и конфиденциальность
+
+Готовится публикация в основном каталоге F-Droid со стандартной подписью F-Droid.
+Приложение пока не доступно в каталоге; GitHub Release содержит исходники.
+[Пошаговый план и статус](docs/FDROID_PUBLICATION.md).
+
+Пакет: `io.github.izya12.countdown`. Для переноса из прежней тестовой сборки
+`io.github.countdown` экспортируйте события в JSON и импортируйте в новую.
+
+[Политика конфиденциальности](PRIVACY.md) · [Сообщить об ошибке](https://github.com/Izya12/Countdown-widget/issues)
+
+Лицензия исходного кода — [MIT](LICENSE). [Лицензии зависимостей](THIRD_PARTY_NOTICES.md).
+Скриншоты стороннего приложения
 используются только для анализа и не включены в ресурсы приложения.
