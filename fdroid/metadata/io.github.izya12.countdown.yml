@@ -1,0 +1,26 @@
+Categories:
+  - Calendar & Agenda
+  - Timer
+License: MIT
+AuthorName: Izya12
+SourceCode: https://github.com/Izya12/Countdown-widget
+IssueTracker: https://github.com/Izya12/Countdown-widget/issues
+Changelog: https://github.com/Izya12/Countdown-widget/blob/HEAD/CHANGELOG.md
+
+AutoName: Countdown
+
+RepoType: git
+Repo: https://github.com/Izya12/Countdown-widget.git
+
+Builds:
+  - versionName: 0.1.0
+    versionCode: 1
+    commit: dad2e258de3c34c1a68a63b2cf2db9c8c5e0ca61
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 0.1.0
+CurrentVersionCode: 1
