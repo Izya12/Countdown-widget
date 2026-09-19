@@ -1,5 +1,5 @@
 <!-- suppress SpellCheckingInspection -->
-# Обратный отсчёт
+# Отсчёт / Countdown
 
 Проект offline-first Android-приложения для событий, обратного отсчёта и
 виджетов домашнего экрана.

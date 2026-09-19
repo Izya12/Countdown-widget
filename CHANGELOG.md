@@ -2,6 +2,8 @@
 
 ## Unreleased — 0.1.0
 
+- Renamed the Russian app label to «Отсчёт»; the English label remains «Countdown».
+
 - Fixed stale content in active standard and circular widget sessions by observing Room event and configuration changes; added regression tests for initial assignment, edits, units and deletion.
 - Removed unused RU/EN string resources and refreshed build/verification documentation.
 

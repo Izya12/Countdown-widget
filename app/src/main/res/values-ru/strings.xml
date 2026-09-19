@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Обратный отсчёт</string>
+    <string name="app_name">Отсчёт</string>
     <string name="new_event">Новое событие</string>
     <string name="edit_event">Изменить событие</string>
     <string name="save">Сохранить</string>
