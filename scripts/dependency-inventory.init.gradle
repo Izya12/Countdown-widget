@@ -1,0 +1,17 @@
+// Run: ./gradlew -I scripts/dependency-inventory.init.gradle :app:writeRuntimeInventory
+gradle.projectsEvaluated {
+    def app = gradle.rootProject.project(':app')
+    app.tasks.register('writeRuntimeInventory') {
+        doLast {
+            def configuration = app.configurations.getByName('releaseRuntimeClasspath')
+            def artifacts = configuration.resolvedConfiguration.resolvedArtifacts.collect { artifact ->
+                def id = artifact.moduleVersion.id
+                [group: id.group, name: id.name, version: id.version, file: artifact.file.absolutePath]
+            }.sort { a, b -> "${a.group}:${a.name}" <=> "${b.group}:${b.name}" }
+            def output = new File(app.rootProject.projectDir, 'build/runtime-inventory.json')
+            output.parentFile.mkdirs()
+            output.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(artifacts))
+            println "Runtime inventory: ${output}"
+        }
+    }
+}

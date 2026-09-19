@@ -10,7 +10,7 @@ android {
     namespace = "io.github.countdown"
     compileSdk = 36
     defaultConfig {
-        applicationId = "io.github.countdown"
+        applicationId = "io.github.izya12.countdown"
         minSdk = 26
         targetSdk = 36
         versionCode = 1

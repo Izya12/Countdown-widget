@@ -1,0 +1,1 @@
+First F-Droid release preparation: local events, repeating dates, round 1×1 widgets with independent days/weeks, reminder presets, JSON backups, light/dark themes and English/Russian. Fixed live widget updates after event and configuration changes.

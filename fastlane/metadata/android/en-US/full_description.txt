@@ -1,0 +1,17 @@
+Keep the dates that matter close at hand. Countdown is a local event tracker with round home-screen widgets, reminders and JSON backups.
+
+• Create events with dates, optional times, notes and categories.
+• Count down to future events or see the time since past dates.
+• Repeat events daily, weekly, monthly, yearly, on weekdays or every N days.
+• Add a round 1×1 widget with days or weeks, an event caption and an optional progress ring.
+• Choose independent settings for each widget. Standard, minimal, progress and calendar widget styles are also available.
+• Add reminder presets to saved events.
+• Search, pin, favorite and archive events.
+• Export and import local JSON backups.
+• Use light, dark or system theme. English and Russian are supported.
+
+No account, advertising, analytics or network backend. Events remain on your device unless you choose to export a backup.
+
+Android may delay background widget updates and reminder delivery, especially in battery-saving modes. Notifications are approximate; this app is not an exact alarm clock. Widget size depends on your launcher. Open an event for a current countdown.
+
+Requires Android 8.0 or later. Source code is available under the MIT license.
